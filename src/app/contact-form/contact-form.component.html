@@ -1,0 +1,42 @@
+<form style="margin-top: 20px;">
+  <div class="form-group">
+    <label for="firstName">FirstNAME</label>
+    <input
+    required
+    minlength="4"
+    maxlength="10"
+    pattern="[a-aA-Z]+"
+    ngModel name="firstName"
+    #firstName="ngModel"
+    (change)="log(firstName)"
+    class="form-control"
+    id="firstName"
+    type="text">
+
+   <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div
+        *ngIf="firstName.errors.required">
+        Ce champ est obligatoire!
+        </div>
+        <div *ngIf="firstName.errors.minlength">
+          Ce champ doit avoir au moins {{firstName.errors.minlengh.actualLength }}/{{firstName.errors.minlengh.requiredLength }} caractère  !!
+        </div>
+        <div *ngIf="firstName.errors.pattern">
+          Firstname doit contenir de l'alphabet
+        </div>
+   </div>
+ </div>
+  <div class="form-group">
+    <label for="lastName">LastNAME</label>
+    <input ngModel name="lasttName" #lastName class="form-control" id="lastName" type="text">
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea  ngModel name="comment" #comment class="form-control" id="comment" type="text"></textarea>
+  </div>
+
+  <button class="btn btn-primary">Enregistrer</button>
+</form>
+
+
+.row.col-md-4

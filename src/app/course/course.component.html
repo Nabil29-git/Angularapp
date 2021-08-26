@@ -1,0 +1,18 @@
+<p>course works!</p>
+
+<ul>
+    <li *ngFor='let course of courses'>
+            {{course}}
+    </li>
+</ul>
+
+<input [(ngModel)]='email' type='text' (keyup.enter)=OnKeyUp()>
+<p>{{email}}</p>
+<h1 [style.backgroundColor]="isActive ? 'blue':'red' ">{{title}}</h1>
+<img src="{{Img}}" alt="{{title}}">
+<img [src]='Img' [alt]='title'>
+<button class="btn btn-primary" [class.active]=isActive>Mon button</button>
+<div (click)="onClickDiv()">
+<button (click)="onClick()" class="btn btn-primary">Click Here</button>
+</div>
+

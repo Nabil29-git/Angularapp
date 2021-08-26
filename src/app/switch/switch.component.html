@@ -1,0 +1,26 @@
+<ul class="nav nav-pills">
+  <li [class.active]="view == 'angular'" (click)="view = 'angular'">
+    <a>angular</a>
+  </li>
+  <li [class.active]="view == 'Django'">
+    <a (click)="view = 'Django'">Django</a>
+  </li>
+  <li [class.active]="view == 'JEE'"><a (click)="view = 'JEE'">JEE</a></li>
+</ul>
+
+<div [ngSwitch]="view">
+  <div *ngSwitchCase="'angular'">angular</div>
+  <div *ngSwitchCase="'Django'">Django</div>
+  <div *ngSwitchCase="'JEE'">JEE</div>
+</div>
+<button (click)="LoadCourses()">Load</button>
+<button class="btn btn-success" (click)="addCourses()">Ajouter</button>
+<ul>
+  <li *ngFor="let course of courses">
+    {{ course.id }} {{ course.title }}
+    <button class="btn btn-danger" (click)="removeCourse(course)">
+      Delete
+    </button>
+    <button class="btn btn-warning" (click)="editCourse(course)">Edit</button>
+  </li>
+</ul>

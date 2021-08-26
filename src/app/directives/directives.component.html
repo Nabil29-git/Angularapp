@@ -1,0 +1,5 @@
+<div *ngIf="study.length > 0; then Study; else noStudy">liste de mes cours</div>
+
+<ng-template #Study> liste des cours</ng-template>
+
+<ng-template #noStudy> pas de cours </ng-template>
